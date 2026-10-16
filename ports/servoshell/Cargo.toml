@@ -101,6 +101,9 @@ url = { workspace = true }
 android_logger = { workspace = true }
 jni = { workspace = true }
 net = { workspace = true }
+# Backport servo/servo#48207: give Servo a compatible allocator on Android.
+# Keep OS heap-pointer tagging enabled; SpiderMonkey reserves upper pointer bits.
+servo-allocator = { workspace = true, features = ["use-jemalloc"] }
 
 [target.'cfg(not(target_os = "android"))'.dependencies]
 backtrace = { workspace = true }
